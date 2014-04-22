@@ -1,14 +1,16 @@
-public class Board {
+
+import java.awt.Color;
+public class Board extends JFrame {
 	int[][] board;
 	public Board() {
 		board = new int[10][10];
 		setBackground(Color.BLACK);
          addMouseListener(this);
-         resignButton = new JButton("Resign");
+         JButton resignButton = new JButton("Resign");
          resignButton.addActionListener(this);
-         newGameButton = new JButton("New Game");
+         JButton newGameButton = new JButton("New Game");
          newGameButton.addActionListener(this);
-         message = new JLabel("",JLabel.CENTER);
+        JLabel message = new JLabel("",JLabel.CENTER);
          message.setFont(new  Font("Serif", Font.BOLD, 14));
          message.setForeground(Color.green);
 	}
