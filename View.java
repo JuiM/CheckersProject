@@ -10,32 +10,37 @@ public class View extends JFrame implements MouseListener{
 		super("");
 		setSize(500,530);
 		setVisible(true);
+		// added on stuff:
+		setBackground(new Color(0,150,0));  // Dark green background.
+      
+      /* Create the components and add them to the applet. */
+      
+      Board board = new Board();  
+      add(board);
+      
+      /* Set the position and size of each component by calling
+       its setBounds() method. */
+      
+      board.setBounds(20,20,164,164); // size should be 164-by-164, right? for 8-by-8?
 	}
 	public void paint(Graphics g){
-		g.setColor(Color.WHITE);
-		g.fillRect(0, 0, 500, 530);
+		// are we going to have graphics g in the parameters of each of these
+		paintBoard();
+		paintCheckers();
 	}
 	 /**
-       * Respond to a user click on the board.  If no game is in progress, show 
-       * an error message.  Otherwise, find the row and column that the user 
+       * Respond to a user click on the board. Find the row and column that the user 
        * clicked and call clickSquare() to handle it.
        */
       public void mousePressed(MouseEvent evt) {
-      	// should I create a gameInProgress method??
-         if (gameInProgress == false)
-            message.setText("Click \"New Game\" to start a new game.");
-        // what else do we need when the mouse is pressed
-        // else get the row and col and then click it
-         else {
-            int col = (evt.getX() - 2) / 20;
-            int row = (evt.getY() - 2) / 20;
-            if (col >= 0 && col < 8 && row >= 0 && row < 8)
+        // what do we need when the mouse is pressed
+        //  get the row and col and then click it
                //clickSquare(row,col); should I have a 
                //clickSquare() method?
          }
       }
-      public void mouseReleased(MouseEvent evt) { }
-      // Do we still need the game.clicked(x,y) thing?
+      public void mouseReleased(MouseEvent evt) {game.clicked(x,y); }
+       
       public void mouseClicked(MouseEvent evt) { }
       public void mouseEntered(MouseEvent evt) { }
       public void mouseExited(MouseEvent evt) { }
