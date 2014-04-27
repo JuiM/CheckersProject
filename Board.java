@@ -86,3 +86,5 @@ public class Board extends JFrame{
          }
       }  // end setUpGame()
 }
+
+// Board: reset, getPiece(x,y), click(x,y), incrementScore(), gameOver?, 
